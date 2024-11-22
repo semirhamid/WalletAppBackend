@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using WalletApp.Application.DTOs.TransactionDTOs;
 
 namespace WalletApp.Application.Features.Transactions.Commands;
 
-public class CreateTransactionCommand : IRequest<Guid>
+public class CreateTransactionCommand : IRequest<TransactionDTO>
 {
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;

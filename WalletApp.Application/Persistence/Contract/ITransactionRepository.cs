@@ -1,9 +1,10 @@
-﻿using WalletApp.Domain.Entities;
+﻿using WalletApp.Application.DTOs.TransactionDTOs;
+using WalletApp.Domain.Entities;
 
-namespace WalletApp.Persistence.Contract;
+namespace WalletApp.Application.Persistence.Contract;
 
 public interface ITransactionRepository : IGenericInterface<Transaction>
 {
-    Task<IEnumerable<Transaction>> GetRecentTransactions(Guid userId);
-    Task<Transaction?> GetTransactionById(Guid transactionId);
+    Task<IEnumerable<TransactionDTO>> GetRecentTransactions(Guid userId, CancellationToken cancellationToken);
+    Task<TransactionDTO?> GetTransactionById(Guid transactionId,CancellationToken cancellationToken);
 }

@@ -1,10 +1,10 @@
-namespace WalletApp.Persistence.Contract;
+namespace WalletApp.Application.Persistence.Contract;
 
 public interface IGenericInterface<T> where T : class
 {
-  Task<IReadOnlyList<T>> GetAllAsync();
-  Task<T> GetByIdAsync(int id);
-  Task<T> AddAsync(T entity);
-  Task<T> UpdateAsync(T entity);
-  Task<T> DeleteAsync(int id);
+  Task<IReadOnlyList<T>> GetAllAsync(CancellationToken? cancellationToken);
+  Task<T> GetByIdAsync(Guid id, CancellationToken? cancellationToken);
+  Task<T> AddAsync(T entity, CancellationToken? cancellationToken);
+  Task<T> UpdateAsync(T entity, CancellationToken? cancellationToken);
+  Task<T> DeleteAsync(Guid id, CancellationToken? cancellationToken);
 }
