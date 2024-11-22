@@ -1,9 +1,9 @@
-using WalletApp.Domain.Common;
+﻿using WalletApp.Application.DTOs.Common;
 
-namespace WalletApp.Domain.Entities
+namespace WalletApp.Application.DTOs.TransactionDTOs;
+
+public class TransactionDTO : BaseDTO
 {
-  public class Transaction : BaseEntity
-  {
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public decimal Amount { get; set; }
@@ -11,7 +11,4 @@ namespace WalletApp.Domain.Entities
     public string Type { get; set; } = string.Empty;
     public bool IsPending { get; set; }
     public string AuthorizedUser { get; set; } = string.Empty;
-    public Guid UserId { get; set; }
-    public WalletUser WalletUser { get; set; } = null!;
-  }
 }
