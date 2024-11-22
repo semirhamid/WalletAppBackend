@@ -11,3 +11,4 @@ public class TransactionDTO : BaseDTO
     public string Type { get; set; } = string.Empty;
     public bool IsPending { get; set; }
 }
+

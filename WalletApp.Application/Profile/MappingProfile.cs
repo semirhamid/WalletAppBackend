@@ -2,7 +2,7 @@ using AutoMapper;
 using WalletApp.Application.DTOs.PointDto;
 using WalletApp.Application.DTOs.TransactionDTOs;
 using WalletApp.Application.DTOs.UserDto;
-using WalletApp.Application.DTOs.Wallet;
+using WalletApp.Application.DTOs.WalletDto;
 using WalletApp.Domain.Entities;
 using Transaction = System.Transactions.Transaction;
 
