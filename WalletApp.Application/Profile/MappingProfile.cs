@@ -1,6 +1,10 @@
-using System.Transactions;
 using AutoMapper;
+using WalletApp.Application.DTOs.PointDto;
 using WalletApp.Application.DTOs.TransactionDTOs;
+using WalletApp.Application.DTOs.UserDto;
+using WalletApp.Application.DTOs.Wallet;
+using WalletApp.Domain.Entities;
+using Transaction = System.Transactions.Transaction;
 
 namespace WalletApp.Application
 {
@@ -8,7 +12,11 @@ namespace WalletApp.Application
     {
         public MappingProfile()
         {
+            CreateMap<WalletUser, WalletUserDto>().ReverseMap();
+            CreateMap<Wallet, WalletDto>().ReverseMap();
             CreateMap<Transaction, TransactionDTO>().ReverseMap();
+            CreateMap<Point, PointDto>().ReverseMap();
+            
         }
     }
 }

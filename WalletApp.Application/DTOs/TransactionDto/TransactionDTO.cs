@@ -10,5 +10,4 @@ public class TransactionDTO : BaseDTO
     public DateTime Date { get; set; }
     public string Type { get; set; } = string.Empty;
     public bool IsPending { get; set; }
-    public string AuthorizedUser { get; set; } = string.Empty;
 }
