@@ -1,12 +1,12 @@
-﻿namespace WalletApp.Domain.Entities;
+﻿using WalletApp.Domain.Common;
 
-public class Points
+namespace WalletApp.Domain.Entities;
+
+public class Point : BaseEntity
 {
-    public int Id { get; set; }
-
     public Guid UserId { get; set; }
     public WalletUser User { get; set; } 
 
-    public int PointsValue { get; set; }  
+    public int PointValue { get; set; }  
     public DateTime Date { get; set; }  
 }

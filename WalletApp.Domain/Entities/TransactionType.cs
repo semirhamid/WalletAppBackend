@@ -1,7 +1,6 @@
 ﻿namespace WalletApp.Domain.Entities;
-
 public enum TransactionType
 {
-    Payment,  
-    Credit   
+    Payment = 1,
+    Credit = 2
 }

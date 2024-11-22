@@ -13,6 +13,10 @@ namespace WalletApp.Domain.Entities
 
         public WalletUser(string firstName, string lastName, string email, string phoneNumber, string address, DateTime dateOfBirth)
         {
+            if (string.IsNullOrWhiteSpace(firstName)) throw new ArgumentException("First name is required.", nameof(firstName));
+            if (string.IsNullOrWhiteSpace(lastName)) throw new ArgumentException("Last name is required.", nameof(lastName));
+            if (string.IsNullOrWhiteSpace(email)) throw new ArgumentException("Email is required.", nameof(email));
+
             FirstName = firstName;
             LastName = lastName;
             Email = email;

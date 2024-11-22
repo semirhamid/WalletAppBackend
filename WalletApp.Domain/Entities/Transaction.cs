@@ -8,10 +8,9 @@ namespace WalletApp.Domain.Entities
     public string Description { get; set; } = string.Empty;
     public decimal Amount { get; set; }
     public DateTime Date { get; set; }
-    public string Type { get; set; } = string.Empty;
-    public bool IsPending { get; set; }
-    public string AuthorizedUser { get; set; } = string.Empty;
+    public TransactionType Type { get; set; }
+    public TransationStatus Status { get; set; }
     public Guid UserId { get; set; }
-    public WalletUser WalletUser { get; set; } = null!;
+    public WalletUser WalletUser { get; set; }
   }
 }
