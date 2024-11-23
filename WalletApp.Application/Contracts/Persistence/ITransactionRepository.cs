@@ -1,7 +1,7 @@
 ﻿using WalletApp.Application.DTOs.TransactionDTOs;
 using WalletApp.Domain.Entities;
 
-namespace WalletApp.Application.Persistence.Contract;
+namespace WalletApp.Application.Contracts.Persistence;
 
 public interface ITransactionRepository : IGenericRepository<Transaction>
 {

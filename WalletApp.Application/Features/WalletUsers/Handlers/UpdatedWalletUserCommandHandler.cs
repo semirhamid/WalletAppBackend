@@ -3,7 +3,7 @@ using FluentValidation;
 using MediatR;
 using WalletApp.Application.DTOs.UserDto;
 using WalletApp.Application.Features.WalletUser.Commands;
-using WalletApp.Application.Persistence.Contract;
+using WalletApp.Application.Contracts.Persistence;
 
 
 namespace WalletApp.Application.Features.WalletUser.Handlers;

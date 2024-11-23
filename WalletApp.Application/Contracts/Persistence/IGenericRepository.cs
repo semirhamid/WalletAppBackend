@@ -1,4 +1,4 @@
-namespace WalletApp.Application.Persistence.Contract;
+namespace WalletApp.Application.Contracts.Persistence;
 
 public interface IGenericRepository<T> where T : class
 {

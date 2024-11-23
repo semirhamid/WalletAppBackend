@@ -3,7 +3,7 @@ using FluentValidation;
 using MediatR;
 using WalletApp.Application.DTOs.WalletDto;
 using WalletApp.Application.Features.Wallets.Commands;
-using WalletApp.Application.Persistence.Contract;
+using WalletApp.Application.Contracts.Persistence;
 using WalletApp.Domain.Entities;
 using ValidationException = WalletApp.Application.Exceptions.ValidationException;
 

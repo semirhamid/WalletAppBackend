@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WalletApp.Application.Persistence.Contract;
+using WalletApp.Application.Contracts.Persistence;
 using WalletApp.Infrastructure.Persistence;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class

@@ -2,7 +2,7 @@
 using MediatR;
 using WalletApp.Application.DTOs.PointDto;
 using WalletApp.Application.Features.Points.Queries;
-using WalletApp.Application.Persistence.Contract;
+using WalletApp.Application.Contracts.Persistence;
 
 namespace WalletApp.Application.Features.Points.Handlers;
 

@@ -4,7 +4,7 @@ using MediatR;
 using WalletApp.Application.DTOs.PointDto;
 using WalletApp.Application.DTOs.PointDto.Validators;
 using WalletApp.Application.Features.Points.Commands;
-using WalletApp.Application.Persistence.Contract;
+using WalletApp.Application.Contracts.Persistence;
 using WalletApp.Domain.Entities;
 using ValidationException = WalletApp.Application.Exceptions.ValidationException;
 

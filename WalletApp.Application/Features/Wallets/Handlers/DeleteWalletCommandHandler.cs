@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using WalletApp.Application.Features.Wallets.Commands;
-using WalletApp.Application.Persistence.Contract;
+using WalletApp.Application.Contracts.Persistence;
 
 namespace WalletApp.Application.Features.Wallets.Handlers;
 
