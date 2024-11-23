@@ -5,7 +5,7 @@ using WalletApp.Application.Features.WalletUser.Queries;
 using WalletApp.Application.Persistence.Contract;
 namespace WalletApp.Application.Features.WalletUser.Handlers;
 
-public class GetWalletUsersQueryHandler : IRequestHandler<GetWalletUsersQuery, List<WalletUserDto>>
+public class GetWalletUsersQueryHandler : IRequestHandler<GetWalletUsersQuery, List<WalletUserResponseDto>>
 {
     private readonly IWalletUserRepository _userRepository;
     private readonly IMapper _mapper;
@@ -16,9 +16,9 @@ public class GetWalletUsersQueryHandler : IRequestHandler<GetWalletUsersQuery, L
         _mapper = mapper;
     }
 
-    public async Task<List<WalletUserDto>> Handle(GetWalletUsersQuery request, CancellationToken cancellationToken)
+    public async Task<List<WalletUserResponseDto>> Handle(GetWalletUsersQuery request, CancellationToken cancellationToken)
     {
         var users = await _userRepository.GetAllAsync(cancellationToken);
-        return _mapper.Map<List<WalletUserDto>>(users);
+        return _mapper.Map<List<WalletUserResponseDto>>(users);
     }
 }

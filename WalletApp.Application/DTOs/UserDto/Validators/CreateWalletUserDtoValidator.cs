@@ -2,9 +2,9 @@
 
 namespace WalletApp.Application.DTOs.UserDto.Validators;
 
-public class WalletUserDtoValidator : AbstractValidator<WalletUserDto>
+public class CreateWalletUserDtoValidator : AbstractValidator<CreateWalletUserDto>
 {
-    public WalletUserDtoValidator()
+    public CreateWalletUserDtoValidator()
     {
         RuleFor(user => user.FirstName)
             .NotEmpty().WithMessage("First name is required.");

@@ -1,14 +1,17 @@
-﻿using MediatR;
+﻿
+
+using MediatR;
 using WalletApp.Application.DTOs.UserDto;
+using WalletApp.Application.DTOs.WalletDto;
 
 namespace WalletApp.Application.Features.WalletUser.Commands;
 
-public class CreateWalletUserCommand : IRequest<WalletUserDto>
+public class CreateWalletUserCommand : IRequest<WalletUserResponseDto>
 {
-    public string FirstName { get; set; } = string.Empty;
-    public string LastName { get; set; } = string.Empty;
-    public string Email { get; set; } = string.Empty;
-    public string PhoneNumber { get; set; } = string.Empty;
-    public string Address { get; set; } = string.Empty;
-    public DateTime DateOfBirth { get; set; }
+    public CreateWalletUserDto WalletUser { get; set; }
+
+    public CreateWalletUserCommand(CreateWalletUserDto user)
+    {
+        WalletUser = user;
+    }
 }

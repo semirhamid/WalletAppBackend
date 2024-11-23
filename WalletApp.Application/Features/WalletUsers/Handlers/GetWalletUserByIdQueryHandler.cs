@@ -6,7 +6,7 @@ using WalletApp.Application.Persistence.Contract;
 
 namespace WalletApp.Application.Features.WalletUser.Handlers;
 
-public class GetWalletUserByIdQueryHandler : IRequestHandler<GetWalletUserByIdQuery, WalletUserDto>
+public class GetWalletUserByIdQueryHandler : IRequestHandler<GetWalletUserByIdQuery, WalletUserResponseDto>
 {
     private readonly IWalletUserRepository _userRepository;
     private readonly IMapper _mapper;
@@ -17,7 +17,7 @@ public class GetWalletUserByIdQueryHandler : IRequestHandler<GetWalletUserByIdQu
         _mapper = mapper;
     }
 
-    public async Task<WalletUserDto> Handle(GetWalletUserByIdQuery request, CancellationToken cancellationToken)
+    public async Task<WalletUserResponseDto> Handle(GetWalletUserByIdQuery request, CancellationToken cancellationToken)
     {
         var user = await _userRepository.GetByIdAsync(request.Id, cancellationToken);
         if (user == null)
@@ -25,6 +25,6 @@ public class GetWalletUserByIdQueryHandler : IRequestHandler<GetWalletUserByIdQu
             throw new ApplicationException($"User with id {request.Id} not found");
         }
 
-        return _mapper.Map<WalletUserDto>(user);
+        return _mapper.Map<WalletUserResponseDto>(user);
     }
 }
