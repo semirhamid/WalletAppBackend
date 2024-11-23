@@ -2,9 +2,10 @@
 
 namespace WalletApp.Application.DTOs.WalletDto.Validators;
 
-public class WalletDtoValidator : AbstractValidator<CreateWalletDto>
+
+public class UpdateWalletDtoValidator : AbstractValidator<UpdateWalletDto>
 {
-    public WalletDtoValidator()
+    public UpdateWalletDtoValidator()
     {
         RuleFor(wallet => wallet.UserId)
             .NotEmpty().WithMessage("UserId is required.");

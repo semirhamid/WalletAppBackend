@@ -9,7 +9,7 @@ public abstract class WalletResponseDto : BaseDTO
     public decimal TotalPoints { get; set; }
 }
 
-public class CreateWalletDto : BaseDTO
+public class CreateWalletDto
 {
     public Guid UserId { get; set; }
     public decimal CurrentBalance { get; set; }
