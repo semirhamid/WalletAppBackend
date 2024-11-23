@@ -2,6 +2,6 @@
 
 namespace WalletApp.Application.Persistence.Contract;
 
-public interface IWalletUserRepository : IGenericInterface<WalletUser>
+public interface IWalletUserRepository : IGenericRepository<WalletUser>
 {
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletApp.Infrastructure", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletApp.API", "WalletApp.API\WalletApp.API.csproj", "{7329E70F-C193-479C-958F-465C1847D518}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletApp.Persistence", "WalletApp.Persistence\WalletApp.Persistence.csproj", "{8B01F218-A93C-4A31-8E04-EBDB8E1C21EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{7329E70F-C193-479C-958F-465C1847D518}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7329E70F-C193-479C-958F-465C1847D518}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7329E70F-C193-479C-958F-465C1847D518}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B01F218-A93C-4A31-8E04-EBDB8E1C21EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B01F218-A93C-4A31-8E04-EBDB8E1C21EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B01F218-A93C-4A31-8E04-EBDB8E1C21EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B01F218-A93C-4A31-8E04-EBDB8E1C21EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
