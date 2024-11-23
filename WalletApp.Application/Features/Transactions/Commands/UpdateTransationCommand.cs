@@ -6,10 +6,10 @@ namespace WalletApp.Application.Features.Transactions.Commands;
 
 public class UpdateTransactionCommand : IRequest
 {
-    public UpdateTransationDto Transation { get; set; }
+    public UpdateTransationDto Transaction { get; set; }
 
     public UpdateTransactionCommand(UpdateTransationDto transation)
     {
-        Transation = transation;
+        Transaction = transation;
     }
 }

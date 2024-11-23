@@ -2,7 +2,7 @@
 
 namespace WalletApp.Application.DTOs.WalletDto;
 
-public abstract class WalletResponseDto : BaseDTO
+public class WalletResponseDto : BaseDTO
 {
     public Guid UserId { get; set; }
     public decimal CurrentBalance { get; set; }

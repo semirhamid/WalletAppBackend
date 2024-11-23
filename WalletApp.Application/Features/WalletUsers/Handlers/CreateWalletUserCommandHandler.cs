@@ -27,7 +27,7 @@ public class CreateWalletUserCommandHandler : IRequestHandler<CreateWalletUserCo
         {
             throw new ValidationException(validationResult.Errors);
         }
-        var user = _mapper.Map<Domain.Entities.WalletUser>(request);
+        var user = _mapper.Map<Domain.Entities.WalletUser>(request.WalletUser);
         var createdUser = await _userRepository.AddAsync(user, cancellationToken);
         return _mapper.Map<WalletUserResponseDto>(createdUser);
     }

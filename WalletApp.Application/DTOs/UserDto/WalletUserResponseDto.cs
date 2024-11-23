@@ -2,7 +2,7 @@
 
 namespace WalletApp.Application.DTOs.UserDto;
 
-public abstract class WalletUserResponseDto: BaseDTO
+public class WalletUserResponseDto: BaseDTO
 {
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;

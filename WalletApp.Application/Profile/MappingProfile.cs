@@ -4,7 +4,6 @@ using WalletApp.Application.DTOs.TransactionDTOs;
 using WalletApp.Application.DTOs.UserDto;
 using WalletApp.Application.DTOs.WalletDto;
 using WalletApp.Domain.Entities;
-using Transaction = System.Transactions.Transaction;
 
 namespace WalletApp.Application
 {
@@ -13,10 +12,28 @@ namespace WalletApp.Application
         public MappingProfile()
         {
             CreateMap<WalletUser, WalletUserResponseDto>().ReverseMap();
+            CreateMap<CreateWalletUserDto, WalletUser>().ReverseMap();
+            
             CreateMap<CreateWalletDto, Wallet>();
             CreateMap<WalletResponseDto, Wallet>().ReverseMap();
+            
             CreateMap<Transaction, TransactionResponseDto>().ReverseMap();
+            CreateMap<Transaction, UpdateTransationDto>().ReverseMap();
+            CreateMap<CreateTransactionDto, Transaction>()
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(src =>
+                    src.Amount >= 0
+                        ? TransactionType.Credit
+                        : TransactionType.Payment))
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src =>
+                    src.IsPending
+                        ? TransationStatus.Pending
+                        : TransationStatus.Authorized))
+                .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.WalletUserId));
+            
+            
             CreateMap<Point, PointResponseDto>().ReverseMap();
+            CreateMap<CreatePointDto, PointResponseDto>().ReverseMap();
+            CreateMap<Point, CreatePointDto>().ReverseMap();
             CreateMap<Point, UpdatePointDto>().ReverseMap();
             
         }

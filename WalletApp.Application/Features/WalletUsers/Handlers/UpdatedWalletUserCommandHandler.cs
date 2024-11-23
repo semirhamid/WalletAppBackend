@@ -28,13 +28,19 @@ public class UpdatedWalletUserCommandHandler : IRequestHandler<UpdateWalletUserC
         {
             throw new ValidationException(validationResult.Errors);
         }
+
         var user = await _userRepository.GetByIdAsync(request.WalletUser.Id, cancellationToken);
         if (user == null)
         {
             throw new ApplicationException($"User with id {request.WalletUser.Id} not found");
         }
-        
-        await _userRepository.UpdateAsync(_mapper.Map<Domain.Entities.WalletUser>(request.WalletUser), cancellationToken);
+
+        // Update properties of the tracked entity
+        _mapper.Map(request.WalletUser, user);
+
+        // Save changes
+        await _userRepository.UpdateAsync(user, cancellationToken);
         return _mapper.Map<WalletUserResponseDto>(user);
     }
+
 }

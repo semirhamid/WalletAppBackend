@@ -4,21 +4,25 @@ using MediatR;
 using WalletApp.Application.DTOs.TransactionDTOs;
 using WalletApp.Application.Features.Transactions.Commands;
 using WalletApp.Application.Contracts.Persistence;
+using WalletApp.Application.Exceptions;
 using WalletApp.Domain.Entities;
+using ValidationException = FluentValidation.ValidationException;
 
 namespace WalletApp.Application.Features.Transactions.Handlers;
 
 public class CreateTransactionHandler : IRequestHandler<CreateTransactionCommand, TransactionResponseDto>
 {
     private readonly ITransactionRepository _transactionRepository;
+    private readonly IWalletUserRepository _walletUserRepository;
     private readonly IMapper _mapper;
     private readonly IValidator<CreateTransactionDto> _validator;
 
-    public CreateTransactionHandler(ITransactionRepository transactionRepository, IMapper mapper, IValidator<CreateTransactionDto> validator)
+    public CreateTransactionHandler(ITransactionRepository transactionRepository, IMapper mapper, IValidator<CreateTransactionDto> validator, IWalletUserRepository walletUserRepository)
     {
         _transactionRepository = transactionRepository;
         _mapper = mapper;
         _validator = validator;
+        _walletUserRepository = walletUserRepository;
     }
 
     public async Task<TransactionResponseDto> Handle(CreateTransactionCommand request, CancellationToken cancellationToken)
@@ -28,7 +32,14 @@ public class CreateTransactionHandler : IRequestHandler<CreateTransactionCommand
         {
             throw new ValidationException(validationResult.Errors);
         }
-        var transaction = _mapper.Map<Transaction>(request);
+
+        var user = await _walletUserRepository.GetByIdAsync(request.Transation.WalletUserId, cancellationToken);
+        if (user == null)
+        {
+            throw new NotFoundException("User", request.Transation.WalletUserId);
+        }
+        var transaction = _mapper.Map<Transaction>(request.Transation);
+        transaction.WalletUser = user;
 
         await _transactionRepository.AddAsync(transaction, cancellationToken);
         return _mapper.Map<TransactionResponseDto>(transaction);

@@ -22,9 +22,6 @@ public class CreateTransationDtoValidator : AbstractValidator<CreateTransactionD
             .NotEmpty().WithMessage("Date is required.")
             .LessThanOrEqualTo(DateTime.Now).WithMessage("Date cannot be in the future.");
 
-        RuleFor(transaction => transaction.Type)
-            .NotEmpty().WithMessage("Type is required.");
-
         RuleFor(transaction => transaction.IsPending)
             .NotNull().WithMessage("IsPending status is required.");
     }

@@ -5,7 +5,7 @@ namespace WalletApp.Application.DTOs.PointDto;
 public class UpdatePointDto: PointResponseDto
 {
 }
-public abstract class PointResponseDto: BaseDTO
+public class PointResponseDto: BaseDTO
 {
     public Guid UserId { get; set; }
     public decimal PointValue { get; set; }

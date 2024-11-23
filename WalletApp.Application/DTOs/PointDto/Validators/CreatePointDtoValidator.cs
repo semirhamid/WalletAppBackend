@@ -12,9 +12,5 @@ public class CreatePointDtoValidator : AbstractValidator<CreatePointDto>
 
         RuleFor(point => point.PointValue)
             .GreaterThan(0).WithMessage("Points must be greater than zero.");
-        
-        RuleFor(point=>point.Date)
-            .GreaterThanOrEqualTo(DateTime.Now)
-            .WithMessage("Point date must be greater than now");
     }
 }

@@ -11,14 +11,14 @@ using ValidationException = WalletApp.Application.Exceptions.ValidationException
 
 namespace WalletApp.Application.Features.Points.Handlers;
 
-public class CreatePointCommandHandler : IRequestHandler<CreatePointCommand, PointResponseDto>
+public class UpdatePointCommandHandler : IRequestHandler<UpdatePointCommand, PointResponseDto>
 {
     private readonly IPointRepository _pointRepository;
     private readonly IMapper _mapper;
     private readonly IWalletUserRepository _walletUserRepository;
-    private readonly IValidator<CreatePointDto> _validator;
+    private readonly IValidator<UpdatePointDto> _validator;
 
-    public CreatePointCommandHandler(IPointRepository pointRepository, IMapper mapper, IWalletUserRepository walletUserRepository, IValidator<CreatePointDto> validator)
+    public UpdatePointCommandHandler(IPointRepository pointRepository, IMapper mapper, IWalletUserRepository walletUserRepository, IValidator<UpdatePointDto> validator)
     {
         _pointRepository = pointRepository;
         _mapper = mapper;
@@ -26,7 +26,7 @@ public class CreatePointCommandHandler : IRequestHandler<CreatePointCommand, Poi
         _validator = validator;
     }
 
-    public async Task<PointResponseDto> Handle(CreatePointCommand request, CancellationToken cancellationToken)
+    public async Task<PointResponseDto> Handle(UpdatePointCommand request, CancellationToken cancellationToken)
     {
         var validationResult = await _validator.ValidateAsync(request.Point, cancellationToken);
         if (!validationResult.IsValid)
@@ -38,8 +38,13 @@ public class CreatePointCommandHandler : IRequestHandler<CreatePointCommand, Poi
         {
             throw new NotFoundException("User", request.Point.UserId);
         }
-        
-        await _pointRepository.AddAsync(_mapper.Map<Point>(request.Point), cancellationToken);
+        var point = await _pointRepository.GetByIdAsync(request.Point.Id, cancellationToken);
+        if (point == null)
+        {
+            throw new NotFoundException("Point", request.Point.Id);
+        }
+        point.PointValue = request.Point.PointValue;
+        await _pointRepository.UpdateAsync(point, cancellationToken);
         return _mapper.Map<PointResponseDto>(request.Point);
     }
 }

@@ -1,4 +1,5 @@
-﻿using WalletApp.Application.DTOs.PointDto;
+﻿using Microsoft.EntityFrameworkCore;
+using WalletApp.Application.DTOs.PointDto;
 using WalletApp.Application.Contracts.Persistence;
 using WalletApp.Domain.Entities;
 
@@ -13,8 +14,10 @@ public class PointRepository: GenericRepository<Point>, IPointRepository
         _context = context;
     }
 
-    public Task<IEnumerable<Point>> GetPointsByUserIdAsync(Guid userId, CancellationToken cancellationToken)
+    public async Task<IEnumerable<Point>> GetPointsByUserIdAsync(Guid userId, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        return await _context.Points
+            .Where(p => p.UserId == userId)
+            .ToListAsync(cancellationToken);
     }
 }

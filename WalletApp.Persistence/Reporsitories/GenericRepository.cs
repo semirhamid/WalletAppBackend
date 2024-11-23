@@ -16,9 +16,9 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return await _context.Set<T>().ToListAsync(cancellationToken);
     }
 
-    public async Task<T> GetByIdAsync(Guid id, CancellationToken? cancellationToken = null)
+    public async Task<T> GetByIdAsync(Guid id, CancellationToken? cancellationToken)
     {
-        return await _context.Set<T>().FindAsync(new object[] { id }, cancellationToken);
+        return await _context.Set<T>().FindAsync(id, cancellationToken);
     }
 
     public async Task<T> AddAsync(T entity, CancellationToken cancellationToken)
@@ -35,7 +35,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return entity;
     }
 
-    public async Task<T> DeleteAsync(Guid id, CancellationToken? cancellationToken = default)
+    public async Task<T> DeleteAsync(Guid id, CancellationToken cancellationToken)
     {
         var entity = await GetByIdAsync(id, cancellationToken);
         if (entity == null)

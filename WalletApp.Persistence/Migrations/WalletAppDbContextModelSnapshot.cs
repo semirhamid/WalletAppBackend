@@ -164,123 +164,123 @@ namespace WalletApp.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1af4e2e5-f691-4c10-89c5-8f177268de97"),
+                            Id = new Guid("e66057f8-e7cd-446d-87ef-a6a5686f8570"),
                             Address = "123 Main St",
-                            CreatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7360),
-                            DateOfBirth = new DateTime(1980, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8840),
+                            DateOfBirth = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8877),
                             Email = "john.doe@example.com",
                             FirstName = "John",
                             LastName = "Doe",
                             PhoneNumber = "123-456-7890",
-                            UpdatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7363)
+                            UpdatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8843)
                         },
                         new
                         {
-                            Id = new Guid("2b8d88f5-d8e2-4665-9f87-16471d5d90a3"),
+                            Id = new Guid("cdf94f16-9b86-43ab-ba7f-c106fe34cba6"),
                             Address = "456 Elm St",
-                            CreatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7404),
-                            DateOfBirth = new DateTime(1985, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8878),
+                            DateOfBirth = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8881),
                             Email = "jane.smith@example.com",
                             FirstName = "Jane",
                             LastName = "Smith",
                             PhoneNumber = "234-567-8901",
-                            UpdatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7405)
+                            UpdatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8878)
                         },
                         new
                         {
-                            Id = new Guid("368ad1f5-b6ec-4828-af78-444c76429265"),
+                            Id = new Guid("46f40183-1f18-4b60-b9dd-8822f1af8775"),
                             Address = "789 Oak St",
-                            CreatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7411),
-                            DateOfBirth = new DateTime(1990, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8882),
+                            DateOfBirth = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8884),
                             Email = "alice.johnson@example.com",
                             FirstName = "Alice",
                             LastName = "Johnson",
                             PhoneNumber = "345-678-9012",
-                            UpdatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7412)
+                            UpdatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8882)
                         },
                         new
                         {
-                            Id = new Guid("b1d2efa4-88e9-4db4-95ad-1604488b7c5b"),
+                            Id = new Guid("7ad7db99-b84f-4c88-b92f-240d7f694e17"),
                             Address = "101 Pine St",
-                            CreatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7417),
-                            DateOfBirth = new DateTime(1995, 4, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8885),
+                            DateOfBirth = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8888),
                             Email = "bob.brown@example.com",
                             FirstName = "Bob",
                             LastName = "Brown",
                             PhoneNumber = "456-789-0123",
-                            UpdatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7418)
+                            UpdatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8885)
                         },
                         new
                         {
-                            Id = new Guid("c4fa1d8f-0e4d-4733-b226-d31e7b5f786d"),
+                            Id = new Guid("97c24ee1-e22c-43c0-ab44-1270cbc2e6f1"),
                             Address = "202 Maple St",
-                            CreatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7423),
-                            DateOfBirth = new DateTime(2000, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8889),
+                            DateOfBirth = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8892),
                             Email = "charlie.davis@example.com",
                             FirstName = "Charlie",
                             LastName = "Davis",
                             PhoneNumber = "567-890-1234",
-                            UpdatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7423)
+                            UpdatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8889)
                         },
                         new
                         {
-                            Id = new Guid("e6519812-994f-42e5-acb7-80b3f509ca21"),
+                            Id = new Guid("02a0a73a-ba93-4e02-9e2f-967bb3aaa526"),
                             Address = "303 Birch St",
-                            CreatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7429),
-                            DateOfBirth = new DateTime(2005, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8892),
+                            DateOfBirth = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8896),
                             Email = "diana.miller@example.com",
                             FirstName = "Diana",
                             LastName = "Miller",
                             PhoneNumber = "678-901-2345",
-                            UpdatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7430)
+                            UpdatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8893)
                         },
                         new
                         {
-                            Id = new Guid("4ab1dedd-cf0d-4522-bc8d-78bdd5200e40"),
+                            Id = new Guid("03cf2198-59c1-445c-8401-25dc77ca242c"),
                             Address = "404 Cedar St",
-                            CreatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7434),
-                            DateOfBirth = new DateTime(2010, 7, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8896),
+                            DateOfBirth = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8924),
                             Email = "eve.wilson@example.com",
                             FirstName = "Eve",
                             LastName = "Wilson",
                             PhoneNumber = "789-012-3456",
-                            UpdatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7434)
+                            UpdatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8897)
                         },
                         new
                         {
-                            Id = new Guid("464b4468-3771-44cb-b949-d08660e15f14"),
+                            Id = new Guid("793de3bc-679f-4fe6-99df-88a247486222"),
                             Address = "505 Walnut St",
-                            CreatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7439),
-                            DateOfBirth = new DateTime(2015, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8926),
+                            DateOfBirth = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8929),
                             Email = "frank.moore@example.com",
                             FirstName = "Frank",
                             LastName = "Moore",
                             PhoneNumber = "890-123-4567",
-                            UpdatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7440)
+                            UpdatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8926)
                         },
                         new
                         {
-                            Id = new Guid("a808d4ea-3516-4451-8c76-f57eec9f3a7a"),
+                            Id = new Guid("bc3c4d93-4778-4e95-8b49-fedb9eba8366"),
                             Address = "606 Chestnut St",
-                            CreatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7463),
-                            DateOfBirth = new DateTime(2020, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8929),
+                            DateOfBirth = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8932),
                             Email = "grace.taylor@example.com",
                             FirstName = "Grace",
                             LastName = "Taylor",
                             PhoneNumber = "901-234-5678",
-                            UpdatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7464)
+                            UpdatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8930)
                         },
                         new
                         {
-                            Id = new Guid("fce6f1ae-a351-4bf9-beb5-d30f5780f38e"),
+                            Id = new Guid("fe0d28c8-145e-4dff-bba5-14fbfc772313"),
                             Address = "707 Spruce St",
-                            CreatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7469),
-                            DateOfBirth = new DateTime(2025, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8932),
+                            DateOfBirth = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8935),
                             Email = "hank.anderson@example.com",
                             FirstName = "Hank",
                             LastName = "Anderson",
                             PhoneNumber = "012-345-6789",
-                            UpdatedAt = new DateTime(2024, 11, 23, 14, 50, 55, 826, DateTimeKind.Utc).AddTicks(7470)
+                            UpdatedAt = new DateTime(2024, 11, 23, 16, 7, 58, 66, DateTimeKind.Utc).AddTicks(8933)
                         });
                 });
 
