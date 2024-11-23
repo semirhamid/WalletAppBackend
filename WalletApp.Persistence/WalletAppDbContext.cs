@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WalletApp.Domain.Common;
 using WalletApp.Domain.Entities;
+using WalletApp.Infrastructure.Persistence.Configurations.Entities;
 
 namespace WalletApp.Infrastructure.Persistence
 {
@@ -41,6 +42,7 @@ namespace WalletApp.Infrastructure.Persistence
             modelBuilder.Entity<Transaction>()
                 .Property(t => t.Status)
                 .HasConversion<string>();
+            modelBuilder.ApplyConfiguration(new WalletUserConfiguration());
         }
         
 

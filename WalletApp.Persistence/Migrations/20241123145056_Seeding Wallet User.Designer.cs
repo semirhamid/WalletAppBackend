@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using WalletApp.Infrastructure.Persistence;
@@ -11,9 +12,11 @@ using WalletApp.Infrastructure.Persistence;
 namespace WalletApp.Persistence.Migrations
 {
     [DbContext(typeof(WalletAppDbContext))]
-    partial class WalletAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241123145056_Seeding Wallet User")]
+    partial class SeedingWalletUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
