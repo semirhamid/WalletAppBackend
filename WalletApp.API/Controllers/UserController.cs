@@ -1,4 +1,6 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using WalletApp.Application.Features.WalletUser.Queries;
 
 namespace WalletApp.API.Controllers;
 
@@ -9,15 +11,18 @@ public class UserController : ControllerBase
 
 
     private readonly ILogger<UserController> _logger;
+    private readonly IMediator _mediator;
 
-    public UserController(ILogger<UserController> logger)
+    public UserController(ILogger<UserController> logger, IMediator mediator)
     {
         _logger = logger;
+        _mediator = mediator;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IActionResult Get()
+    [HttpGet(Name = "GetAllUsers")]
+    public async Task<IActionResult> Get()
     {
-        return Ok("Hi");
+        var users = await _mediator.Send(new GetWalletUsersQuery());
+        return Ok(users);
     }
 }
