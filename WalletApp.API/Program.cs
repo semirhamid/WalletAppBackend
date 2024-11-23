@@ -1,4 +1,6 @@
+using WalletApp.API.Services;
 using WalletApp.Application;
+using WalletApp.Infrastructure;
 using WalletApp.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,7 +31,10 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices();
 builder.Services.AddPersistenceServices(builder.Configuration);
+// Register DailyPointsJob as a hosted service
+builder.Services.AddHostedService<DailyPointsJob>();
 
 var app = builder.Build();
 

@@ -17,4 +17,14 @@ public class WalletRepository: GenericRepository<Wallet>, IWalletRepository
     {
         return await _context.Wallets.FirstOrDefaultAsync(w => w.UserId == userId, cancellationToken);
     }
+
+    public async Task UpdateUserPointsAsync(Guid userId, int points, CancellationToken cancellationToken)
+    {
+        var wallet = await _context.Wallets.FirstOrDefaultAsync(w => w.UserId == userId, cancellationToken);
+        if (wallet != null)
+        {
+            wallet.TotalPoints += points;
+            await _context.SaveChangesAsync(cancellationToken);
+        }
+    }
 }
