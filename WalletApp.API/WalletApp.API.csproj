@@ -8,12 +8,17 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.20">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\WalletApp.Application\WalletApp.Application.csproj" />
     <ProjectReference Include="..\WalletApp.Infrastructure\WalletApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\WalletApp.Persistence\WalletApp.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

@@ -17,6 +17,7 @@ public static class PersistenceServiceRegistration
 
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IWalletUserRepository, WalletUserRepository>();
+        services.AddScoped<IWalletRepository, WalletRepository>();
         services.AddScoped<ITransactionRepository, TransactionRepository>();
         services.AddScoped<IPointRepository, PointRepository>();
 

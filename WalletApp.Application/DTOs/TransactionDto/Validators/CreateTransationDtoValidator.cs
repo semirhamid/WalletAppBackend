@@ -2,7 +2,7 @@
 
 namespace WalletApp.Application.DTOs.TransactionDTOs.Validators;
 
-public class CreateTransationDtoValidator : AbstractValidator<TransactionResponseDto>
+public class CreateTransationDtoValidator : AbstractValidator<CreateTransactionDto>
 {
     public CreateTransationDtoValidator()
     {
