@@ -1,6 +1,8 @@
-﻿namespace WalletApp.Application.DTOs.PointDto;
+﻿using WalletApp.Application.DTOs.Common;
 
-public class PointDto
+namespace WalletApp.Application.DTOs.PointDto;
+
+public class PointDto: BaseDTO
 {
     public Guid UserId { get; set; }
     public int PointValue { get; set; }

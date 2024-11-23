@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using WalletApp.Application.DTOs.PointDto;
+using WalletApp.Application.DTOs.PointDto.Validators;
 using WalletApp.Application.Features.Points.Commands;
 using WalletApp.Application.Persistence.Contract;
 using WalletApp.Domain.Entities;
@@ -21,6 +22,8 @@ public class CreatePointCommandHandler : IRequestHandler<CreatePointCommand, Poi
 
     public async Task<PointDto> Handle(CreatePointCommand request, CancellationToken cancellationToken)
     {
+        var validator = new PointDtoValidator();
+        // var validationResult = await validator.ValidateAsync(request, cancellationToken);
         var user = await _walletUserRepository.GetByIdAsync(request.UserId, cancellationToken);
         if (user == null)
         {

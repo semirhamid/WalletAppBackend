@@ -3,8 +3,12 @@ using WalletApp.Application.DTOs.WalletDto;
 
 namespace WalletApp.Application.Features.Wallets.Commands;
 
-public class UpdateWalletCommand : IRequest<WalletDto>
+public class UpdateWalletCommand : IRequest<WalletResponseDto>
 {
-    public Guid Id { get; set; }
-    public decimal Balance { get; set; }
+    public UpdateWalletDto Driver { get; set; }
+    
+    public UpdateWalletCommand(UpdateWalletDto driver)
+    {
+        Driver = driver;
+    }
 }

@@ -1,8 +1,22 @@
-﻿namespace WalletApp.Application.DTOs.WalletDto;
+﻿using WalletApp.Application.DTOs.Common;
 
-public class WalletDto
+namespace WalletApp.Application.DTOs.WalletDto;
+
+public abstract class WalletResponseDto : BaseDTO
 {
     public Guid UserId { get; set; }
     public decimal CurrentBalance { get; set; }
-    public float TotalPoints { get; set; }
+    public decimal TotalPoints { get; set; }
+}
+
+public class CreateWalletDto : BaseDTO
+{
+    public Guid UserId { get; set; }
+    public decimal CurrentBalance { get; set; }
+    public decimal TotalPoints { get; set; }
+}
+
+public class UpdateWalletDto : WalletResponseDto
+{
+    
 }

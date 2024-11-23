@@ -3,9 +3,12 @@ using WalletApp.Application.DTOs.WalletDto;
 
 namespace WalletApp.Application.Features.Wallets.Commands;
 
-public class CreateWalletCommand : IRequest<WalletDto>
+public class CreateWalletCommand : IRequest<WalletResponseDto>
 {
-    public Guid UserId { get; set; }
-    public decimal CurrentBalance { get; set; }
-    public int TotalPoints { get; set; }
+    public CreateWalletDto Driver { get; set; }
+    
+    public CreateWalletCommand(CreateWalletDto driver)
+    {
+        Driver = driver;
+    }
 }

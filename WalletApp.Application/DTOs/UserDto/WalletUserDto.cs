@@ -1,8 +1,9 @@
-﻿namespace WalletApp.Application.DTOs.UserDto;
+﻿using WalletApp.Application.DTOs.Common;
 
-public class WalletUserDto
+namespace WalletApp.Application.DTOs.UserDto;
+
+public class WalletUserDto: BaseDTO
 {
-    public Guid Id { get; set; }
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;

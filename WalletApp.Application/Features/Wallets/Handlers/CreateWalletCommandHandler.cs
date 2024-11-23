@@ -7,7 +7,7 @@ using WalletApp.Domain.Entities;
 
 namespace WalletApp.Application.Features.Wallets.Handlers;
 
-public class CreateWalletCommandHandler : IRequestHandler<CreateWalletCommand, WalletDto>
+public class CreateWalletCommandHandler : IRequestHandler<CreateWalletCommand, WalletResponseDto>
 {
     private readonly IWalletRepository _walletRepository;
     private readonly IMapper _mapper;
@@ -18,11 +18,11 @@ public class CreateWalletCommandHandler : IRequestHandler<CreateWalletCommand, W
         _mapper = mapper;
     }
 
-    public async Task<WalletDto> Handle(CreateWalletCommand request, CancellationToken cancellationToken)
+    public async Task<WalletResponseDto> Handle(CreateWalletCommand request, CancellationToken cancellationToken)
     {
-        var wallet = _mapper.Map<Wallet>(request);
+        var wallet = _mapper.Map<Wallet>(request.Driver);
 
         await _walletRepository.AddAsync(wallet, cancellationToken);
-        return _mapper.Map<WalletDto>(wallet);
+        return _mapper.Map<WalletResponseDto>(wallet);
     }
 }

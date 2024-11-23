@@ -13,7 +13,8 @@ namespace WalletApp.Application
         public MappingProfile()
         {
             CreateMap<WalletUser, WalletUserDto>().ReverseMap();
-            CreateMap<Wallet, WalletDto>().ReverseMap();
+            CreateMap<CreateWalletDto, Wallet>();
+            CreateMap<WalletResponseDto, Wallet>().ReverseMap();
             CreateMap<Transaction, TransactionDTO>().ReverseMap();
             CreateMap<Point, PointDto>().ReverseMap();
             
