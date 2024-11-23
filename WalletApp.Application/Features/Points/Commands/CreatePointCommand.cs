@@ -3,8 +3,12 @@ using WalletApp.Application.DTOs.PointDto;
 
 namespace WalletApp.Application.Features.Points.Commands;
 
-public class CreatePointCommand : IRequest<PointDto>
+public class CreatePointCommand : IRequest<PointResponseDto>
 {
-    public Guid UserId { get; set; }
-    public int Points { get; set; }
+    public CreatePointDto Point { get; set; }
+
+    public CreatePointCommand(CreatePointDto pointDto)
+    {
+        Point = pointDto;
+    }
 }

@@ -5,6 +5,6 @@ namespace WalletApp.Application.Persistence.Contract;
 
 public interface ITransactionRepository : IGenericInterface<Transaction>
 {
-    Task<IEnumerable<TransactionDTO>> GetRecentTransactions(Guid userId, CancellationToken cancellationToken);
-    Task<TransactionDTO?> GetTransactionById(Guid transactionId,CancellationToken cancellationToken);
+    Task<IEnumerable<TransactionResponseDto>> GetRecentTransactions(Guid userId, CancellationToken cancellationToken);
+    Task<TransactionResponseDto?> GetTransactionById(Guid transactionId,CancellationToken cancellationToken);
 }

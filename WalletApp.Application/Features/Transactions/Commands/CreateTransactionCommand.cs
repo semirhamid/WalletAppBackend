@@ -3,13 +3,12 @@ using WalletApp.Application.DTOs.TransactionDTOs;
 
 namespace WalletApp.Application.Features.Transactions.Commands;
 
-public class CreateTransactionCommand : IRequest<TransactionDTO>
+public class CreateTransactionCommand : IRequest<TransactionResponseDto>
 {
-    public string Name { get; set; } = string.Empty;
-    public string Description { get; set; } = string.Empty;
-    public decimal Amount { get; set; }
-    public DateTime Date { get; set; }
-    public int Type { get; set; }
-    public int Status { get; set; }
-    public Guid UserId { get; set; }
+    public CreateTransactionDto Transation { get; set; }
+
+    public CreateTransactionCommand(CreateTransactionDto transation)
+    {
+        Transation = transation;
+    }
 }

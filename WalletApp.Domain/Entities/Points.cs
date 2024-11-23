@@ -7,6 +7,6 @@ public class Point : BaseEntity
     public Guid UserId { get; set; }
     public WalletUser User { get; set; } 
 
-    public int PointValue { get; set; }  
+    public decimal PointValue { get; set; }  
     public DateTime Date { get; set; }  
 }

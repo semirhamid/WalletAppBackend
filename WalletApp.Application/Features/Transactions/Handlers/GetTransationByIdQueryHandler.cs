@@ -6,7 +6,7 @@ using WalletApp.Application.Persistence.Contract;
 
 namespace WalletApp.Application.Features.Transactions.Handlers;
 
-public class GetTransactionByIdQueryHandler : IRequestHandler<GetTransactionByIdQuery, TransactionDTO>
+public class GetTransactionByIdQueryHandler : IRequestHandler<GetTransactionByIdQuery, TransactionResponseDto>
 {
     private readonly ITransactionRepository _transactionRepository;
     private readonly IMapper _mapper;
@@ -17,9 +17,9 @@ public class GetTransactionByIdQueryHandler : IRequestHandler<GetTransactionById
         _mapper = mapper;
     }
 
-    public async Task<TransactionDTO> Handle(GetTransactionByIdQuery request, CancellationToken cancellationToken)
+    public async Task<TransactionResponseDto> Handle(GetTransactionByIdQuery request, CancellationToken cancellationToken)
     {
         var transaction = await _transactionRepository.GetTransactionById(request.Id, cancellationToken);
-        return _mapper.Map<TransactionDTO>(transaction);
+        return _mapper.Map<TransactionResponseDto>(transaction);
     }
 }

@@ -2,9 +2,9 @@
 
 namespace WalletApp.Application.DTOs.TransactionDTOs.Validators;
 
-public class TransationDtoValidator : AbstractValidator<TransactionDTO>
+public class UpdateTransationDtoValidator : AbstractValidator<TransactionResponseDto>
 {
-    public TransationDtoValidator()
+    public UpdateTransationDtoValidator()
     {
         RuleFor(transaction => transaction.WalletUserId)
             .NotEmpty().WithMessage("UserId is required.");

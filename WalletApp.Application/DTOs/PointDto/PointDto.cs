@@ -2,9 +2,19 @@
 
 namespace WalletApp.Application.DTOs.PointDto;
 
-public class PointDto: BaseDTO
+public class UpdatePointDto: PointResponseDto
+{
+}
+public abstract class PointResponseDto: BaseDTO
 {
     public Guid UserId { get; set; }
-    public int PointValue { get; set; }
+    public decimal PointValue { get; set; }
+    public DateTime Date { get; set; }
+}
+
+public class CreatePointDto
+{
+    public Guid UserId { get; set; }
+    public decimal PointValue { get; set; }
     public DateTime Date { get; set; }
 }

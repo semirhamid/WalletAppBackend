@@ -15,8 +15,9 @@ namespace WalletApp.Application
             CreateMap<WalletUser, WalletUserDto>().ReverseMap();
             CreateMap<CreateWalletDto, Wallet>();
             CreateMap<WalletResponseDto, Wallet>().ReverseMap();
-            CreateMap<Transaction, TransactionDTO>().ReverseMap();
-            CreateMap<Point, PointDto>().ReverseMap();
+            CreateMap<Transaction, TransactionResponseDto>().ReverseMap();
+            CreateMap<Point, PointResponseDto>().ReverseMap();
+            CreateMap<Point, UpdatePointDto>().ReverseMap();
             
         }
     }
