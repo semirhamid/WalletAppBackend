@@ -17,8 +17,12 @@ namespace WalletApp.Application
             CreateMap<CreateWalletDto, Wallet>();
             CreateMap<WalletResponseDto, Wallet>().ReverseMap();
             
-            CreateMap<Transaction, TransactionResponseDto>().ReverseMap();
             CreateMap<Transaction, UpdateTransationDto>().ReverseMap();
+            CreateMap<TransactionResponseDto, Transaction>()
+                .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.WalletUserId));
+            
+            CreateMap<Transaction, TransactionResponseDto>()
+                .ForMember(dest => dest.WalletUserId, opt => opt.MapFrom(src => src.UserId));
             CreateMap<CreateTransactionDto, Transaction>()
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(src =>
                     src.Amount >= 0
