@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using WalletApp.API.Services;
 using WalletApp.Application;
 using WalletApp.Infrastructure;
@@ -37,6 +38,34 @@ builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddHostedService<DailyPointsJob>();
 
 var app = builder.Build();
+
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    var context = services.GetRequiredService<WalletAppDbContext>();
+
+    try
+    {
+        if (context.Database.GetPendingMigrations().Any())
+        {
+            logger.LogInformation("Applying migrations...");
+            context.Database.Migrate();
+            logger.LogInformation("Migrations applied successfully.");
+        }
+        else
+        {
+            logger.LogInformation("No pending migrations.");
+        }
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "An error occurred while applying migrations.");
+        throw;
+    }
+}
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
