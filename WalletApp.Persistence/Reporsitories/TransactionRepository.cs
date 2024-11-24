@@ -28,4 +28,35 @@ public class TransactionRepository: GenericRepository<Transaction>, ITransaction
 
         return transaction;
     }
+
+    public async Task<decimal> GetAmountLeftForMonth(Guid userId, decimal monthlyTarget, CancellationToken cancellationToken)
+    {
+        var currentMonth = DateTime.Now.Month;
+        var currentYear = DateTime.Now.Year;
+
+        // Sum all successful payments for the current month
+        var totalPaid = await _context.Transactions
+            .Where(t => t.UserId == userId 
+                        && t.Type == TransactionType.Payment 
+                        && t.Status == TransationStatus.Authorized 
+                        && t.Date.Month == currentMonth 
+                        && t.Date.Year == currentYear)
+            .SumAsync(t => t.Amount, cancellationToken);
+
+        // Calculate the amount left
+        return Math.Max(monthlyTarget - totalPaid, 0); 
+    }
+
+    public async Task<(string message, decimal amountLeft)> GetPaymentStatus(Guid userId, decimal monthlyTarget, CancellationToken cancellationToken)
+    {
+        var amountLeft = await this.GetAmountLeftForMonth(userId, monthlyTarget, cancellationToken);
+
+        if (amountLeft == 0)
+        {
+            var currentMonth = DateTime.Now.ToString("MMMM");
+            return ($"You've paid your {currentMonth}", amountLeft);
+        }
+
+        return ($"You still need to pay ${amountLeft} this month.", amountLeft);
+    }
 }

@@ -16,13 +16,15 @@ public class CreateTransactionHandler : IRequestHandler<CreateTransactionCommand
     private readonly IWalletUserRepository _walletUserRepository;
     private readonly IMapper _mapper;
     private readonly IValidator<CreateTransactionDto> _validator;
+    private readonly IWalletRepository _walletRepository;
 
-    public CreateTransactionHandler(ITransactionRepository transactionRepository, IMapper mapper, IValidator<CreateTransactionDto> validator, IWalletUserRepository walletUserRepository)
+    public CreateTransactionHandler(ITransactionRepository transactionRepository, IMapper mapper, IValidator<CreateTransactionDto> validator, IWalletUserRepository walletUserRepository, IWalletRepository walletRepository)
     {
         _transactionRepository = transactionRepository;
         _mapper = mapper;
         _validator = validator;
         _walletUserRepository = walletUserRepository;
+        _walletRepository = walletRepository;
     }
 
     public async Task<TransactionResponseDto> Handle(CreateTransactionCommand request, CancellationToken cancellationToken)
@@ -38,7 +40,19 @@ public class CreateTransactionHandler : IRequestHandler<CreateTransactionCommand
         {
             throw new NotFoundException("User", request.Transation.WalletUserId);
         }
+
+        var wallet = await _walletRepository.GetByWalletUserIdAsync(user.Id, cancellationToken);
+        if (wallet == null)
+        {
+            throw new NotFoundException("Wallet", wallet);
+        }
         var transaction = _mapper.Map<Transaction>(request.Transation);
+
+        var canProceedTransaction = _walletRepository.CanProcessTransaction(wallet, transaction);
+        if (!canProceedTransaction)
+        {
+            throw new InvalidOperationException("Transaction cannot be processed.");
+        }
         transaction.WalletUser = user;
 
         await _transactionRepository.AddAsync(transaction, cancellationToken);

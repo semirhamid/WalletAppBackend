@@ -42,6 +42,39 @@ namespace WalletApp.API.Controllers
             }
         }
         
+        [HttpGet("User/{userId}/PaymentStatus", Name = "GetPaymentStatusByUserId")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> GetPaymentStatusByUserId(Guid userId, [FromQuery] decimal monthlyTarget)
+        {
+            try
+            {
+                if (userId == Guid.Empty)
+                {
+                    return BadRequest("User ID is required.");
+                }
+
+                // Call the service to get the payment status and amount left
+                var (message, amountLeft) = await _mediator.Send(new GetPaymentStatusQuery { UserId = userId, MonthlyTarget = monthlyTarget });
+
+                // Check if there are no transactions and return NotFound if necessary
+                if (amountLeft == null)
+                {
+                    return NotFound();
+                }
+
+                // Return the status message and the amount left
+                return Ok(new { message, amountLeft });
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Error occurred while getting payment status for user with ID {userId}");
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+        
         
         [HttpGet("User/{userId}", Name = "GetLatestTransactionByUserId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
