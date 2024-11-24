@@ -42,7 +42,7 @@ This repository contains the backend implementation for the Wallet App, built us
     dotnet run
     ```
 
-6. Access the Swagger UI at `http://localhost:44357/swagger`.
+6. Access the Swagger UI at `http://localhost:5106/swagger`.
 
 ---
 
