@@ -13,7 +13,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 
     public async Task<IReadOnlyList<T>> GetAllAsync(CancellationToken cancellationToken)
     {
-        return await _context.Set<T>().ToListAsync(cancellationToken);
+        return await _context.Set<T>().AsNoTracking().ToListAsync(cancellationToken);
     }
 
     public async Task<T> GetByIdAsync(Guid id, CancellationToken? cancellationToken)
