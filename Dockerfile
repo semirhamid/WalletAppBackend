@@ -5,16 +5,16 @@ WORKDIR /app
 
 # Copy solution and restore dependencies
 COPY WalletAppBackend.sln ./
-COPY WalletApp.API/WalletApp.API.csproj ./WalletApp.API/
-COPY WalletApp.Application/WalletApp.Application.csproj ./WalletApp.Application/
-COPY WalletApp.Domain/WalletApp.Domain.csproj ./WalletApp.Domain/
-COPY WalletApp.Infrastructure/WalletApp.Infrastructure.csproj ./WalletApp.Infrastructure/
-COPY WalletApp.Persistence/WalletApp.Persistence.csproj ./WalletApp.Persistence/
+COPY src/WalletApp.API/WalletApp.API.csproj ./WalletApp.API/
+COPY src/WalletApp.Application/WalletApp.Application.csproj ./WalletApp.Application/
+COPY src/WalletApp.Domain/WalletApp.Domain.csproj ./WalletApp.Domain/
+COPY src/WalletApp.Infrastructure/WalletApp.Infrastructure.csproj ./WalletApp.Infrastructure/
+COPY src/WalletApp.Persistence/WalletApp.Persistence.csproj ./WalletApp.Persistence/
 RUN dotnet restore
 
 # Copy everything and build the application
 COPY . ./
-RUN dotnet publish WalletApp.API/WalletApp.API.csproj -c Release -o out
+RUN dotnet publish src/WalletApp.API/WalletApp.API.csproj -c Release -o out
 
 # Use official ASP.NET Core Runtime image for running the app
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
